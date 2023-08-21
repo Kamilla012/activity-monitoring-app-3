@@ -6,6 +6,8 @@ import Switches from './components/Switches'
 import Opinions from './components/Opinions' 
 import ReadMore from './components/ReadMore'
 import LineGraphs from './components/LineGraphs'
+import VerticalLineChart from './components/VerticalLineChart'
+import VerticalLineCalories from './components/VerticalLineCalories'
 
 
 
@@ -31,13 +33,14 @@ const App = () =>  (
         <LeftNavbar />
       </div>
       <div className={`flex  flex-wrap lg:justify-center justify-start ${styles.marginX} ${styles.marginY} bg-secondary`}>
-
+        
+        <VerticalLineChart />
+        <VerticalLineCalories />
         <Switches />
         <Opinions />
         <ReadMore />
         
-        <LineGraphs />
-  
+
         
       </div>
       </div>

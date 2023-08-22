@@ -5,9 +5,13 @@ import LeftNavbar from './components/LeftNavbar'
 import Switches from './components/Switches'
 import Opinions from './components/Opinions' 
 import ReadMore from './components/ReadMore'
-import LineGraphs from './components/LineGraphs'
+
 import VerticalLineChart from './components/VerticalLineChart'
 import VerticalLineCalories from './components/VerticalLineCalories'
+
+import DoughnutChart from './components/DoughnutChartSteps'
+import DoughnutChartSteps from './components/DoughnutChartSteps'
+
 
 
 
@@ -39,8 +43,8 @@ const App = () =>  (
         <Switches />
         <Opinions />
         <ReadMore />
-        
-
+        <DoughnutChartSteps />
+     
         
       </div>
       </div>

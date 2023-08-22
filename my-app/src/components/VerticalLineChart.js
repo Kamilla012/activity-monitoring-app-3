@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 
 
 const VerticalLineChart = () => {
@@ -41,7 +42,7 @@ const VerticalLineChart = () => {
   };
 
   return (
-    <div className="vertical-line-chart" style={{ width: '200px', height: '300px' }}>
+    <div className="vertical-line-chart" style={{ width: '200px', height: '280px' }}>
       <Line data={chartData} options={options} />
     </div>
   );

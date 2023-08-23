@@ -1,6 +1,7 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import styles from '../style';
 
 const DoughnutChartSteps = () => {
   const data = {
@@ -23,14 +24,27 @@ const options = {
 
 
   return (
-    <div style={{ position: 'relative', width: '250px', height: '250px' }}>
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: "white"}}>
+    <div className='flex'>
+    <div className={`${styles.doughnutParent}`}>
+      <div className={`${styles.doughnut}`}>
         <h4 className='text-[28px]'>2000</h4>
         <p className='text-[20px]'>Your steps <br>
         </br>today</p>
       </div>
       <Doughnut data={data} options={options} />
+      <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p>
     </div>
+    <div className={`${styles.doughnutParent}`}>
+    <div className={`${styles.doughnut}`}>
+      <h4 className='text-[28px]'>7</h4>
+      <p className='text-[20px]'>Your km <br>
+      </br>today</p>
+    </div>
+    <Doughnut data={data} options={options} />
+    <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p>
+  </div>
+  </div>
+    
   );
 };
 

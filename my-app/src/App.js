@@ -11,6 +11,7 @@ import VerticalLineCalories from './components/VerticalLineCalories'
 
 import DoughnutChart from './components/DoughnutChartSteps'
 import DoughnutChartSteps from './components/DoughnutChartSteps'
+import BarChart from './components/BarChart'
 
 
 
@@ -44,6 +45,7 @@ const App = () =>  (
         <Opinions />
         <ReadMore />
         <DoughnutChartSteps />
+        <BarChart />
      
         
       </div>

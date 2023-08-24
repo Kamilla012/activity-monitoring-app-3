@@ -8,7 +8,7 @@ const styles = {
     paragraph: "font-poppins font-normal text-dimWhite text-[16px] leading-[21.8px]",
     text: "font-poppins font-normal text-dimWhite text-[14px] leading-[20.8px]",
   
-    doughnutParent: "relative w-[250px] h-[250px]",
+    doughnutParent: "relative w-[180px] h-[180px]",
     doughnut: "absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-center text-white",
     // "position: 'relative', width: '250px', height: '250px', color: "white" 
     // position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: "white"
@@ -20,9 +20,9 @@ const styles = {
     
   
     marginX: "sm:mx-10 mx-6",
-    marginY: "sm:my-16 my-6",
+    marginY: "sm:my-16 my-10",
 
-    sectionXY: "sm:mx-10 mx-6 sm:my-4 my-2"
+    sectionXY: "sm:mx-10 mx-6 sm:my-10 my-2"
 };
 
 export default styles;

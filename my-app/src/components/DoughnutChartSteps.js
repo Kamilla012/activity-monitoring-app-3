@@ -24,24 +24,24 @@ const options = {
 
 
   return (
-    <div className='flex'>
-    <div className={`${styles.doughnutParent}`}>
+    <div className={`${styles.marginX} flex`}>
+    <div className={`${styles.doughnutParent} mr-6`}>
       <div className={`${styles.doughnut}`}>
-        <h4 className='text-[28px]'>2000</h4>
-        <p className='text-[20px]'>Your steps <br>
+        <h4 className='text-[18px]'>2000</h4>
+        <p className='text-[10px]'>Your steps <br>
         </br>today</p>
       </div>
       <Doughnut data={data} options={options} />
-      <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p>
+      {/* <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p> */}
     </div>
     <div className={`${styles.doughnutParent}`}>
     <div className={`${styles.doughnut}`}>
-      <h4 className='text-[28px]'>7</h4>
-      <p className='text-[20px]'>Your km <br>
+      <h4 className='text-[18px]'>7</h4>
+      <p className='text-[10px]'>Your km <br>
       </br>today</p>
     </div>
     <Doughnut data={data} options={options} />
-    <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p>
+    {/* <p className={`${styles.paragraph} text-center mt-2`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta,</p> */}
   </div>
   </div>
     

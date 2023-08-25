@@ -13,6 +13,7 @@ import DoughnutChart from './components/DoughnutChartSteps'
 import DoughnutChartSteps from './components/DoughnutChartSteps'
 import BarChart from './components/BarChart'
 import HalfDoughnutChart from './components/HalfDoughtnutChart'
+import LeftButton from './components/LeftButton'
 
 
 
@@ -34,21 +35,23 @@ const App = () =>  (
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col items-start'>
-      <div className={` flex justify-between items-center ${styles.marginY} ${styles.flexCenter}`}>
+      <div className='flex md:flex-row flex-col items-start'>
+      <div className={`flex xs:flex-col xs:justify-start sm:flex-row sm:justify-between  md:flex-col
+       ${styles.marginY}`}>
         <LeftNavbar />
+        <LeftButton />
       </div>
-      <div className={`flex flex-wrap justify-start items-center ${styles.sectionXY} bg-secondary`}>
+      <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
         
       <Switches />
       <Opinions />
       <DoughnutChartSteps />
 
-        <VerticalLineChart />
+        {/* <VerticalLineChart /> */}
         <VerticalLineCalories />
         <BarChart />
         
-        <ReadMore />
+        
         
         
         {/* <HalfDoughnutChart /> */}

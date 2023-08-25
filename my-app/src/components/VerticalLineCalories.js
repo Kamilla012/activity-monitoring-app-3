@@ -42,9 +42,14 @@ const VerticalLineChart = () => {
   };
 
   return (
+    <div className='flex'>
     <div className="vertical-line-chart" style={{ width: '200px', height: '280px' }}>
       <Line data={chartData} options={options} />
     </div>
+    <div className="vertical-line-chart" style={{ width: '200px', height: '280px' }}>
+    <Line data={chartData} options={options} />
+  </div>
+  </div>
   );
 };
 

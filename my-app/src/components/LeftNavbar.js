@@ -5,7 +5,7 @@ import Button from './Button'
 
 const LeftNavbar = () => {
   return (
-    <nav className='w-[400px]'>
+    <nav className=' w-[450px]'>
         <ul className='flex flex-col list-none justify-start'> 
         {LeftNav.map((nav) =>(
             <li 
@@ -23,11 +23,7 @@ const LeftNavbar = () => {
             </li>
         ))}
         </ul>
-        <div className={`${styles.marginY} ml-5`}>
-          <h2 className={`${styles.heading3}`}>LOREM IPSUM</h2>
-          <p className={`${styles.paragraph} w-[400px]`}>Lorem ipsum dolor sit amet. Morbi porta, dui sit amet maximus tempus, ligula nisi aliquet neque, a aliquet leo risus id est. </p>
-          <Button />
-        </div>
+  
         
     </nav>
   )

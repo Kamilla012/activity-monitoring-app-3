@@ -7,7 +7,7 @@ import { OpinionStars } from '../constants'
 
 
 const Opinions = () => (
-    <section className={`${styles.sectionXY} flex flex-col w-[350px] px-5 py-4 rounded-lg shadow-md shadow-white relative`}>
+    <section className={`${styles.sectionXY} flex flex-col ss:w-[350px] px-5 py-10 rounded-lg shadow-md shadow-white relative`}>
         <h4 className={`${styles.heading4}`}>Lorem impsum</h4>
         <p className={`${styles.paragraph} mb-2`}>Lorem ipsum dolor sit amet.</p>
         <hr/>

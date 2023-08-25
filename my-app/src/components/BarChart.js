@@ -26,7 +26,7 @@ const BarChart = () => {
   };
 
   const options = {
-    // maintainAspectRatio: false, // Zapobiega domyślnej responsywności wykresu
+    maintainAspectRatio: false, // Zapobiega domyślnej responsywności wykresu
     plugins: {
       legend: {
         display: false, // Ukrycie legendy

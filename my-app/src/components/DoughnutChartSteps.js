@@ -24,7 +24,7 @@ const options = {
 
 
   return (
-    <div className={`flex`}>
+    <div className={`${styles.sectionXY}} flex`}>
     <div className={`${styles.doughnutParent} mr-6`}>
       <div className={`${styles.doughnut}`}>
         <h4 className='text-[18px]'>2000</h4>

@@ -22,7 +22,7 @@ const styles = {
     marginX: "sm:mx-10 mx-6",
     marginY: "sm:my-16 my-10",
 
-    sectionXY: "sm:mx-10 mx-6 sm:my-10 my-2"
+    sectionXY: "sm:mx-10 mx-6 sm:my-5 my-2"
 };
 
 export default styles;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import styles from '../style';
 
 
 const VerticalLineChart = () => {
@@ -34,15 +35,21 @@ const VerticalLineChart = () => {
     scales: {
       x: {
         beginAtZero: true,
+        grid: {
+          display: false, // Usunięcie siatki dla osi X
+        },
       },
       y: {
         beginAtZero: true,
+        grid: {
+          display: false, // Usunięcie siatki dla osi Y
+        },
       },
     },
   };
 
   return (
-    <div className='flex'>
+    <div className={`${styles.sectionXY} flex`}>
     <div className="vertical-line-chart" style={{ width: '200px', height: '280px' }}>
       <Line data={chartData} options={options} />
     </div>

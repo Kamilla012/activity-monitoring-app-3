@@ -21,6 +21,7 @@ const BarChart = () => {
         borderColor: 'rgba(134,69,37,255)',
         borderWidth: 2,
         barThickness: 30,
+        
       },
     ],
   };
@@ -37,9 +38,15 @@ const BarChart = () => {
         stacked: true,
         categoryPercentage: 0.2, // Zmniejsza szerokość słupków w jednym zbiorze danych
         barPercentage: 0.8,
+        grid: {
+          display: false, // Usunięcie siatki dla osi X
+        },
       },
       y: {
         beginAtZero: true,
+        grid: {
+          display: false, // Usunięcie siatki dla osi Y
+        },
       },
       
     },

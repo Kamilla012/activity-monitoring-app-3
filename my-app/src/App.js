@@ -6,14 +6,17 @@ import Switches from './components/Switches'
 import Opinions from './components/Opinions' 
 import ReadMore from './components/ReadMore'
 
-import VerticalLineChart from './components/VerticalLineChart'
+
 import VerticalLineCalories from './components/VerticalLineCalories'
 
-import DoughnutChart from './components/DoughnutChartSteps'
+
 import DoughnutChartSteps from './components/DoughnutChartSteps'
 import BarChart from './components/BarChart'
-import HalfDoughnutChart from './components/HalfDoughtnutChart'
+
 import LeftButton from './components/LeftButton'
+// import Login from './components/Login'
+
+import { useEffect } from 'react'
 
 
 
@@ -26,7 +29,25 @@ import LeftButton from './components/LeftButton'
 
 
 
-const App = () =>  (
+function App () {
+
+  function handleCallbackRespons(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+}
+useEffect(() =>{
+/* global google */
+google.accounts.id.initialize({
+    client_id: "930007037081-p3tbtvrbof430ve3psbu0p85q2n2e81l.apps.googleusercontent.com",
+    callback: handleCallbackRespons
+});
+google.accounts.id.renderButton(
+    document.getElementById("signInDiv"),
+    {theme: "outline", size: "large"}
+)
+}, []);
+
+
+return( 
   <div className='bg-primary w-full overflow-hidden'>
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
@@ -42,7 +63,7 @@ const App = () =>  (
         <LeftButton />
       </div>
       <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
-        
+     
       <Switches />
       <Opinions />
       <DoughnutChartSteps />
@@ -50,6 +71,7 @@ const App = () =>  (
         {/* <VerticalLineChart /> */}
         <VerticalLineCalories />
         <BarChart />
+        {/* <Login /> */}
         
         
         
@@ -60,6 +82,7 @@ const App = () =>  (
       </div>
       </div>
   </div>
-  )
+)
+}
 
   export default App

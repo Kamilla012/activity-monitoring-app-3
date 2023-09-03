@@ -11,13 +11,7 @@ import LeftButton from './components/LeftButton'
 import { useEffect, useState } from 'react'
 
 import jwt_decode from "jwt-decode"
-
-
-
-
-
-
-
+import LoginPanel from './components/LoginPanel'
 
 
 function App () {
@@ -73,7 +67,7 @@ return(
         <LeftButton />
       </div>
       <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
-     
+      
       <Switches />
       <Opinions />
       <DoughnutChartSteps />
@@ -81,7 +75,9 @@ return(
         {/* <VerticalLineChart /> */}
         <VerticalLineCalories />
         <BarChart />
+        
         {/* <Login /> */}
+        <LoginPanel />
         <div id='signInDiv'></div>
         { Object.keys(user).length !== 0 &&
           <button onClick={ (e) => handleSignOut(e)}>Sign Out</button> 
@@ -90,7 +86,7 @@ return(
         
         {user &&
           <div>
-            <img src={user.picture}></img>
+            <img src={user.picture} alt="userphoto"></img>
             <h3>{user.name}</h3>
 
           </div>
@@ -100,7 +96,7 @@ return(
         
         
         {/* <HalfDoughnutChart /> */}
-     
+        
         
       </div>
       </div>

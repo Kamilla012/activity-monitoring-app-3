@@ -20,6 +20,7 @@ const LeftNavbar = () => {
                     {nav.id}
                 </a>
                 
+                
             </li>
         ))}
         </ul>

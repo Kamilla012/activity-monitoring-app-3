@@ -9,7 +9,7 @@ const DoughnutChartSteps = () => {
     datasets: [
       {
         data: [3000, 150],
-        backgroundColor: ['#04a6ea', '#fa2e72'],
+        backgroundColor: ['rgba(99,32,80,255)', '#fa2e72'],
         hoverBackgroundColor: ['#2a91b7', '#d4387b'],
         borderColor: '#FFFFFF', // Dodaj tę właściwość dla koloru krawędzi
         borderWidth: 0.5,

@@ -5,6 +5,7 @@ import styles from '../style';
 
 
 const VerticalLineChart = () => {
+  const gradient = `linear-gradient(90deg, rgba(105,17,127,1) 22%, rgba(200,13,144,0.9920343137254902) 83%)`;
   const chartData = {
     labels: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri'],
     datasets: [

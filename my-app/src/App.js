@@ -8,10 +8,14 @@ import VerticalLineCalories from './components/VerticalLineCalories'
 import DoughnutChartSteps from './components/DoughnutChartSteps'
 import BarChart from './components/BarChart'
 import LeftButton from './components/LeftButton'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 
-import jwt_decode from "jwt-decode"
-import LoginPanel from './components/LoginPanel'
+// import jwt_decode from "jwt-decode"
+// import LoginPanel from './components/LoginPanel'
+import Login from './components/Login'
+import Signup from './components/Signup'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 function App () {
@@ -76,13 +80,16 @@ return(
         <VerticalLineCalories />
         <BarChart />
         
-        {/* <Login /> */}
+      <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          
+      </Routes>
+    
+      </BrowserRouter>
         
-        <LoginPanel />
         
-        
-        
-        {/* <HalfDoughnutChart /> */}
         
         
       </div>

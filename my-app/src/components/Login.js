@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Validation from './LoginValidation'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -7,8 +8,15 @@ const Login = () => {
         password: ''
 
     })
+    const [errors, setErrors] = useState({})
+
+    const handleInput = (event) =>{
+        setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
+    }
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        setErrors(Validation(values))
+
     }
   return (
     <div className='flex justify-center items-center bg-lightBg '>
@@ -17,13 +25,17 @@ const Login = () => {
             <form action="" onSubmit={handleSubmit}>
                 <div className='mb-3 flex flex-col'>
                     <label htmlFor='email'>Email:</label>
-                    <input type='email' placeholder='Enter Email' className='rounded p-1'/>
+                    <input type='email' placeholder='Enter Email' name='email'
+                    onChange={handleInput} className='rounded p-1'/>
+                    {errors.email && <span className='text-errorColor'>{errors.email}</span>}
                 </div>
 
 
                 <div className='mb-3 flex flex-col'>
                     <label htmlFor='password'>Password:</label>
-                    <input type='password' placeholder='Enter Password'className='rounded p-1' />
+                    <input type='password' placeholder='Enter Password' name='password'
+                    onChange={handleInput} className='rounded p-1' />
+                    {errors.password && <span className='text-errorColor'>{errors.password}</span>}
                 </div>
 
 

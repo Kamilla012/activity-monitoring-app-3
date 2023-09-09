@@ -29,6 +29,7 @@ module.exports = {
           lightPink: "#fd2e6c",
           dimWhite: "rgba(255, 255, 255, 0.7)",
           dimBlue: "rgba(9, 151, 124, 0.1)",
+          errorColor: "#750a00"
       }
       
     },

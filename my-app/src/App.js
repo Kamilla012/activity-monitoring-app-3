@@ -13,7 +13,7 @@ import LeftButton from './components/LeftButton'
 // import jwt_decode from "jwt-decode"
 // import LoginPanel from './components/LoginPanel'
 import Login from './components/Login'
-import Signup from './components/Signup'
+import Signup from './components/Signup.js'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 

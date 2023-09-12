@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Validation from './LoginValidation'
+import axios from 'axios'
+import styles from '../style'
 
 const Login = () => {
     const [values, setValues] = useState({
-        emial: '',
+        email: '',
         password: ''
 
     })
+    const navigate = useNavigate()
+    
     const [errors, setErrors] = useState({})
 
     const handleInput = (event) =>{
@@ -16,10 +20,21 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values))
+        if(errors.email === "" && errors.password === ""){
+            axios.post('http://localhost:8081/signup', values)
+            .then(res => {
+                if(res.data === "Success"){
+                navigate('/')
+            }else{
+                alert("No record existed")
+            }
+            })
+            .catch(err => console.log(err))
+        }
 
     }
   return (
-    <div className='flex justify-center items-center bg-lightBg '>
+    <div className={`${styles.sectionXY}flex justify-center items-center bg-lightBg`}>
         <div className='bg-dimWhite px-3 py-6 rounded-md'>
             <h3 className=" text-violet-500 text-[30px]">Log-in</h3>
             <form action="" onSubmit={handleSubmit}>

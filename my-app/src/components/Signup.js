@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Validation from './SignupValidation'
+import axios from 'axios';
+import styles from '../style';
 
 const Signup = () => {
 
 
         const [values, setValues] = useState({
             name: '', 
-            emial: '',
+            email: '',
             password: ''
     
         })
+        const navigate = useNavigate();
         const [errors, setErrors] = useState({})
     
         const handleInput = (event) =>{
-            setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
+            setValues(prev => ({...prev, [event.target.name]: event.target.value}))
         }
         const handleSubmit = (event) => {
             event.preventDefault();
             setErrors(Validation(values))
+            if(errors.name === "" && errors.email === "" && errors.password === ""){
+                axios.post('http://localhost:8081/signup', values)
+                .then(res => {
+                    navigate('/')
+                })
+                .catch(err => console.log(err))
+            }
     
         }
 
@@ -26,7 +36,7 @@ const Signup = () => {
 
 
   return (
-    <div className='flex justify-center items-center bg-lightBg '>
+    <div className={`${styles.sectionXY}flex justify-center items-center bg-lightBg`}>
     <div className='bg-dimWhite px-3 py-6 rounded-md'>
     <h3 className=" text-violet-500 text-[30px]">Sign-up</h3>
         <form action='' onSubmit={handleSubmit}>

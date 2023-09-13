@@ -19,17 +19,28 @@ const Signup = () => {
         const handleInput = (event) =>{
             setValues(prev => ({...prev, [event.target.name]: event.target.value}))
         }
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            setErrors(Validation(values))
-            if(errors.name === "" && errors.email === "" && errors.password === ""){
-                axios.post('http://localhost:8081/signup', values)
-                .then(res => {
-                    navigate('/')
-                })
-                .catch(err => console.log(err))
-            }
+        // const handleSubmit = (event) => {
+        //     event.preventDefault();
+        //     setErrors(Validation(values))
+        //     if(errors.name === "" && errors.email === "" && errors.password === ""){
+        //         axios.post('http://localhost:8081/signup', values)
+        //         .then(res => {
+        //             navigate('/')
+        //         })
+        //         .catch(err => console.log(err))
+        //     }
     
+        // }
+
+        const handleSubmit = async (event) =>{
+            event.preventDefault();
+            axios.post('http://localhost:8081/signup', values)
+            .then(res => 
+                {
+                    console.log(res)
+                    navigate('/login')
+                })
+            .catch(err => console.log(err))
         }
 
 

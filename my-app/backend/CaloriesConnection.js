@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 //ROUTE MIDDLEWARE
-app.use('/api', calories)
+// app.use('/api', calories)
 
 //POST
 const port = 8000;

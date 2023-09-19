@@ -82,14 +82,13 @@ return(
         <BarChart />
         
       <BrowserRouter>
-      <Routes>
-          <Route path='/' element={<Login />}></Route>
-          <Route path='/signup' element={<Signup />}></Route>
-          <Route path='/home' element={<Home />}></Route>
-          
-      </Routes>
-    
-      </BrowserRouter>
+  <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/login' element={<Login />} />
+    <Route path='/signup' element={<Signup />} />
+  </Routes>
+</BrowserRouter>
+
         
         
         

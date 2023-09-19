@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Validation from './LoginValidation'
 import axios from 'axios'
 import styles from '../style'
+
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -10,13 +11,15 @@ const Login = () => {
         password: ''
 
     })
-    const navigate = useNavigate()
+
 
     const [errors, setErrors] = useState({})
 
     const handleInput = (event) =>{
         setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
     }
+
+    axios.defaults.withCredentials = true;
     // const handleSubmit = (event) => {
     //     event.preventDefault();
     //     setErrors(Validation(values))
@@ -34,22 +37,35 @@ const Login = () => {
 
     // }
 
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:8081/login', values)
-        .then(res => {
-            if(res.data.Login){
-                navigate('/')
-            }else{
-                alert('No record')
-            }
-            console.log(res)
-            
+    useEffect(() =>{
+        axios.get('http://localhost:8081')
+        .then(res =>{
+          if(res.data.valid){
+            navigate('/')
+          }else{
+            navigate('/login')
+          }
         })
         .catch(err => console.log(err))
+      })
 
-    }
+      const navigate = useNavigate();
+
+      const handleSubmit = (event) => {
+          event.preventDefault();
+          axios.post('http://localhost:8081/login', values)
+          .then(res => {
+              if (res.data.Login) {
+                  navigate('/'); // Przekierowanie na stronę "Home"
+              } else {
+                  alert('No record');
+              }
+              console.log(res);
+          })
+          .catch(err => console.log(err));
+      }
+
+          
   return (
     <div className={`${styles.sectionXY}flex justify-center items-center bg-lightBg`}>
         <div className='bg-dimWhite px-3 py-6 rounded-md'>

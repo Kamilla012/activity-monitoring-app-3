@@ -73,13 +73,13 @@ return(
       </div>
       <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
       
-      <Switches />
+      {/* <Switches />
       <Opinions />
       <DoughnutChartSteps />
 
         {/* <VerticalLineChart /> */}
-        <VerticalLineCalories />
-        <BarChart />
+        {/* <VerticalLineCalories />
+        <BarChart /> */} */
         
       <BrowserRouter>
   <Routes>

@@ -37,30 +37,29 @@ const Login = () => {
 
     // }
 
-    useEffect(() =>{
-        axios.get('http://localhost:8081')
-        .then(res =>{
-          if(res.data.valid){
-            navigate('/')
-          }else{
-            navigate('/login')
-          }
-        })
-        .catch(err => console.log(err))
-      })
+    // useEffect(() =>{
+    //     axios.get('http://localhost:8081')
+        // .then(res =>{
+        //   if(res.data.valid){
+        //     navigate('/home')
+        //   }else{
+        //     navigate('/login')
+        //   }
+        // })
+    //     .catch(err => console.log(err))
+    //   })
 
       const navigate = useNavigate();
 
       const handleSubmit = (event) => {
           event.preventDefault();
           axios.post('http://localhost:8081/login', values)
-          .then(res => {
-              if (res.data.Login) {
-                  navigate('/'); // Przekierowanie na stronę "Home"
-              } else {
-                  alert('No record');
-              }
-              console.log(res);
+          .then(res =>{
+            if(res.data.valid){
+              navigate('/home')
+            }else{
+              navigate('/login')
+            }
           })
           .catch(err => console.log(err));
       }

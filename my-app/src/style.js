@@ -25,4 +25,7 @@ const styles = {
     sectionXY: "sm:mx-10 mx-6 sm:my-5 my-2"
 };
 
+
+
+
 export default styles;

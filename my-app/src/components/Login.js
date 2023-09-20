@@ -56,7 +56,7 @@ const Login = () => {
           axios.post('http://localhost:8081/login', values)
           .then(res =>{
             if(res.data.valid){
-              navigate('/home')
+              navigate('/')
             }else{
               navigate('/login')
             }

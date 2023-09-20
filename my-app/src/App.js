@@ -8,7 +8,7 @@ import VerticalLineCalories from './components/VerticalLineCalories'
 import DoughnutChartSteps from './components/DoughnutChartSteps'
 import BarChart from './components/BarChart'
 import LeftButton from './components/LeftButton'
-// import { useEffect, useState } from 'react'
+import {useState } from 'react'
 
 // import jwt_decode from "jwt-decode"
 // import LoginPanel from './components/LoginPanel'
@@ -17,9 +17,22 @@ import Signup from './components/Signup.js'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './components/Home'
+import NutritionFormModal from './components/NutritionFormModal'
 
 
 function App () {
+
+
+
+  // const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // const openModal = () => {
+  //   setIsPopupOpen(true);
+  // };
+
+  // const closeModal = () => {
+  //   setIsPopupOpen(false);
+  // };
 // const [ user, setUser] = useState({});
 
 // function handleCallbackRespons(response) {
@@ -72,14 +85,14 @@ return(
         <LeftButton />
       </div>
       <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
-      
-      {/* <Switches />
+    <Switches />
       <Opinions />
       <DoughnutChartSteps />
+      
 
         {/* <VerticalLineChart /> */}
-        {/* <VerticalLineCalories />
-        <BarChart /> */} */
+        <VerticalLineCalories />
+        <BarChart /> 
         
       <BrowserRouter>
   <Routes>

@@ -9,9 +9,25 @@ const NutritionFormModal = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Tutaj możesz wykonać akcje na podstawie wprowadzonych danych, np. przekazać je do rodzica
-    // np. onClose({ calories, protein, carbohydrates, fat });
+  
+    // Wyślij dane do serwera Express.js
+    fetch('/save-nutrition-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ calories, protein, carbohydrates, fat }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Dane zostały zapisane w bazie danych:', data);
+        onClose(); // Zamknij modal po zapisaniu danych
+      })
+      .catch((error) => {
+        console.error('Błąd podczas zapisywania danych:', error);
+      });
   };
+  
 
   const handleClose = () => {
     onClose(); // Wywołujemy funkcję przekazaną przez props onClose, aby zamknąć popup
@@ -22,17 +38,17 @@ const NutritionFormModal = ({ onClose }) => {
       <div className="modal">
         <div className="modal-content">
           <span className="close" onClick={handleClose}>X</span> {/* Dodajemy przycisk zamknięcia */}
-          <h2>Wprowadź dane</h2>
+          <h2>Enter data</h2>
           <form onSubmit={handleSubmit}>
-            <label>Kalorie:</label>
+            <label>Calories</label>
             <input type="text" value={calories} onChange={(e) => setCalories(e.target.value)} />
-            <label>Białko:</label>
+            <label>Protein:</label>
             <input type="text" value={protein} onChange={(e) => setProtein(e.target.value)} />
-            <label>Węglowodany:</label>
+            <label>Carbohydrates:</label>
             <input type="text" value={carbohydrates} onChange={(e) => setCarbohydrates(e.target.value)} />
-            <label>Tłuszcze:</label>
+            <label>Fat:</label>
             <input type="text" value={fat} onChange={(e) => setFat(e.target.value)} />
-            <button type="submit">Zapisz</button>
+            <button type="submit" onClick={handleSubmit}>Save</button>
           </form>
         </div>
       </div>

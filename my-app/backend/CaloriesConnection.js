@@ -1,64 +1,82 @@
-const express = require('express');
+const express = require("express");
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
+const cors = require('cors');
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser")
+
 
 const app = express();
-const port = 3000;
 
-app.use(bodyParser.json());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['POST', 'GET'],
+  credentials: true
+}));
 
-// Konfiguracja połączenia z bazą danych MySQL
+app.use(express.json()); // Use express.json() instead of bodyParser
+app.use(cookieParser());
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 1000 * 60 * 60 * 24 //one day
+  }
+}));
+
+
+
+// Rest of your code...
+
+
+// Rest of your code...
+
+
+
+const port = 3001;
+
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "activity-app"
+  host: 'localhost',
+  user: 'root', // Twój użytkownik MySQL
+  password: '', // Twoje hasło MySQL
+  database: 'activity-app', // Nazwa Twojej bazy danych
 });
 
 db.connect((err) => {
   if (err) {
     console.error('Błąd połączenia z bazą danych:', err);
   } else {
-    console.log('Połączono z bazą danych MySQL');
+    console.log('Połączono z bazą danych');
   }
 });
 
 
-// app.post('/', (req, res) => {
-//     const sql = "INSERT INTO nutrition_data (`calories`, `protein`, `carbohydrates`, `fat`) VALUES (?)";
-//     const values = [
-//       req.body.calories,
-//       req.body.protein,
-//       req.body.carbohydrates,
-//       req.body.fat
-//     ];
-//     db.query(sql, [values], (err, data) => {
-//       if (err) return res.json({ Message: "Error in Node" });
-//       return res.json(data);
-//     });
-//   });
+app.use(bodyParser.json());
 
-
-
-app.post('/save-nutrition-data', (req, res) => {
-    // Pobierz dane z ciała żądania
-    const { calories, protein, carbohydrates, fat } = req.body;
-  
-    // Zdefiniuj zapytanie SQL do wstawienia danych
-    const insertQuery = 'INSERT INTO nutrition_data (calories, protein, carbohydrates, fat) VALUES (?, ?, ?, ?)';
-  
-    // Wykonaj zapytanie SQL do wstawienia danych
-    db.query(insertQuery, [calories, protein, carbohydrates, fat], (error, result) => {
-      if (error) {
-        console.error('Błąd podczas zapisywania danych:', error);
-        res.status(500).json({ error: 'Błąd podczas zapisywania danych' });
-      } else {
-        console.log('Dane zostały zapisane w bazie danych');
-        res.json({ message: 'Dane zostały zapisane w bazie danych' });
-      }
-    });
+app.post('/api/nutrition_data', (req, res) => {
+  const sql = "INSERT INTO nutrition_data (calories, proteins, carbohydrates, fat) VALUES (?, ?, ?, ?)";
+  const values = [
+    req.body.calories,
+    req.body.proteins,
+    req.body.carbohydrates,
+    req.body.fat,
+  ];
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error in Node" });
+    }
+    return res.status(200).json({ message: "Data saved successfully" });
   });
+});
 
-// app.listen(port, () => {
-//   console.log(`Serwer jest uruchomiony na porcie ${port}`);
-// });
+// Definiuj ścieżki obsługujące żądania HTTP tutaj
+
+app.listen(port, () => {
+  console.log(`Serwer działa na porcie ${port}`);
+});
+
+

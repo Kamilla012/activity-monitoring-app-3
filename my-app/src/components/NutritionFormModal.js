@@ -3,7 +3,9 @@ import "../Form.css";
 import axios from 'axios'; // Import Axios
 import { Link, useNavigate } from 'react-router-dom';
 
-const NutritionFormModal = () => {
+const NutritionFormModal = ({ onClose }) => {
+
+
   const [formData, setFormData] = useState({
     calories: '',
     proteins: '',
@@ -19,6 +21,9 @@ const NutritionFormModal = () => {
     });
   };
 
+  const handleClose = () => {
+    onClose(); // Wywołaj funkcję przekazaną przez props onClose, aby zamknąć popup
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -26,6 +31,7 @@ const NutritionFormModal = () => {
       .then((response) => {
         console.log(response.data);
         // Dodaj kod do obsługi sukcesu, np. przekierowanie użytkownika
+        // setIsModalOpen(false);
       })
       .catch((error) => {
         console.error(error);
@@ -33,24 +39,40 @@ const NutritionFormModal = () => {
       });
   };
 
-  return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="modal-content">
-          <h2>Enter data</h2>
-          <form onSubmit={handleSubmit}>
-            <input type='number' placeholder='Enter Calories' className='rounded p-1' name='calories' onChange={handleInput} />
-            <input type='number' placeholder='Enter Protein' className='rounded p-1' name='proteins' onChange={handleInput} />
-            <input type='number' placeholder='Enter carbohydrates' className='rounded p-1' name='carbohydrates' onChange={handleInput} />
-            <input type='number' placeholder='Enter fat' className='rounded p-1' name='fat' onChange={handleInput} />
+  
 
-            <button type="submit" className='btn w-[300px] bg-white text-violet-500 px-2 py-1 border-2 border-violet-500 rounded'>
+
+  return (
+
+
+<div className="modal-overlay">
+  <div className='modal'>
+      <div className="modal-content">
+      {/* <span className="close" onClick={() => setIsModalOpen(false)}>X</span> */}
+      <span className="close" onClick={handleClose}>X</span>
+        <h2>Wprowadź dane</h2>
+        <form onSubmit={handleSubmit}>
+          <label>Kalorie:</label>
+          <input type='number' placeholder='Enter Calories' className='rounded p-1' name='calories' onChange={handleInput} />
+          <label>Białko:</label>
+          <input type='number' placeholder='Enter Protein' className='rounded p-1' name='proteins' onChange={handleInput} />
+          <label>Węglowodany:</label>
+          <input type='number' placeholder='Enter carbohydrates' className='rounded p-1' name='carbohydrates' onChange={handleInput} />
+          <label>Tłuszcze:</label>
+          <input type='number' placeholder='Enter fat' className='rounded p-1' name='fat' onChange={handleInput} />
+          
+
+
+          <button type="submit" className='btn w-[300px] bg-white text-violet-500 px-2 py-1 border-2 border-violet-500 rounded'>
               Save
-            </button>
-          </form>
-        </div>
+            </button> 
+        </form>
       </div>
     </div>
+    </div>
+        // </div>
+    //   </div>
+    // </div>
   );
 }
 

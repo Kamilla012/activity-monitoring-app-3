@@ -1,9 +1,21 @@
 import React, { useState } from 'react'
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import WaterFormModal from './WaterFormModal';
+import styles from '../style';
 
 
 const BarChart = () => {
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openModal = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsPopupOpen(false);
+  };
   const chartData = {
     labels: ['23.08', '24.08', '26.08', '27.08', '28.08'],
     datasets: [
@@ -53,9 +65,27 @@ const BarChart = () => {
   };
 
   return (
-    <div className="vertical-line-chart" style={{ width: '400px', height: '280px' }}>
+
+
+
+<div className={`${styles.sectionXY} flex`}>
+<div className='flex flex-col relative'>
+<div className="vertical-line-chart" style={{ width: '400px', height: '280px' }}>
       <Bar data={chartData} options={options} />
+</div>
+
+<div>
+  {isPopupOpen ? (
+    <div>
+      <button onClick={closeModal} className='text-[30px] white'>Zamknij Popup</button>
+      <WaterFormModal onClose={closeModal} /> {/* Przekazujemy funkcję onClose */}
     </div>
+  ) : (
+    <button onClick={openModal} className='text-[30px] text-white absolute bottom-60 right-2 border border-white border-3 rounded-full px-3 text-center align-middle bg-[rgba(99,32,80,255)]'>+</button>
+  )}
+</div>
+</div>
+</div>
   );
 };
 

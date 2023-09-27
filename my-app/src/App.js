@@ -18,6 +18,7 @@ import Signup from './components/Signup.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './components/Home'
 import NutritionFormModal from './components/NutritionFormModal'
+import VerticalLineWater from './components/VerlicalLineWater'
 
 
 function App () {
@@ -86,12 +87,15 @@ return(
       </div>
       <div className={`flex flex-wrap justify-left items-center ${styles.sectionXY} bg-secondary`}>
     <Switches />
+    
       <Opinions />
       <DoughnutChartSteps />
       
 
-        {/* <VerticalLineChart /> */}
+  
         <VerticalLineCalories />
+        {/* <VerticalLineWater /> */}
+        
         <BarChart /> 
         
       <BrowserRouter>

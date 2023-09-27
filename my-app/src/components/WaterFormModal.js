@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import "../Form.css";
 import axios from 'axios'; // Import Axios
-// import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const NutritionFormModal = ({ onClose }) => {
+const WaterFormModal = ({ onClose }) => {
 
 
   const [formData, setFormData] = useState({
-    calories: '',
-    proteins: '',
-    carbohydrates: '',
-    fat: '',
+    water: ''
   });
 
   const handleInput = (e) => {
@@ -30,14 +26,11 @@ const NutritionFormModal = ({ onClose }) => {
     e.preventDefault();
   
     const formDataToSend = {
-      calories: formData.calories,
-      proteins: formData.proteins,
-      carbohydrates: formData.carbohydrates,
-      fat: formData.fat,
+      water: formData.water,
       date: selectedDate.toISOString().slice(0, 10), // Format daty YYYY-MM-DD
     };
   
-    axios.post('http://localhost:3001/api/nutrition_data', formDataToSend)
+    axios.post('http://localhost:3001/api/water_data', formDataToSend)
       .then((response) => {
         console.log(response.data);
         // Dodaj kod do obsługi sukcesu, np. przekierowanie użytkownika
@@ -60,26 +53,21 @@ const NutritionFormModal = ({ onClose }) => {
 
  return (
 
-
 <div className="modal-overlay">
   <div className='modal'>
       <div className="modal-content">
       {/* <span className="close" onClick={() => setIsModalOpen(false)}>X</span> */}
       <span className="close" onClick={handleClose}>X</span>
         <h2>Wprowadź dane</h2>
-        <form onSubmit={handleSubmit}>
-          <label>Kalorie:</label>
-          <input type='number' placeholder='Enter Calories' className='rounded p-1' name='calories' onChange={handleInput} />
-          <label>Białko:</label>
-          <input type='number' placeholder='Enter Protein' className='rounded p-1' name='proteins' onChange={handleInput} />
-          <label>Węglowodany:</label>
-          <input type='number' placeholder='Enter carbohydrates' className='rounded p-1' name='carbohydrates' onChange={handleInput} />
-          <label>Tłuszcze:</label>
-          <input type='number' placeholder='Enter fat' className='rounded p-1' name='fat' onChange={handleInput} />
 
+
+
+        <form onSubmit={handleSubmit}>
+          <label>Water:</label>
+          <input type='number' placeholder='Enter Water' className='rounded p-1' name='Water' onChange={handleInput} />
 
           
-          <h1>Wybierz datę:</h1>
+          <h1>Select date:</h1>
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}
@@ -97,8 +85,7 @@ const NutritionFormModal = ({ onClose }) => {
       </div>
     </div>
     </div>
-        
   );
 }
 
-export default NutritionFormModal;
+export default WaterFormModal;

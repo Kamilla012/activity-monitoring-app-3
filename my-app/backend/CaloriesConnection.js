@@ -56,9 +56,11 @@ db.connect((err) => {
 
 app.use(bodyParser.json());
 
+
 app.post('/api/nutrition_data', (req, res) => {
-  const sql = "INSERT INTO nutrition_data (calories, proteins, carbohydrates, fat) VALUES (?, ?, ?, ?)";
+  const sql = "INSERT INTO nutrition_data (date, calories, proteins, carbohydrates, fat) VALUES (?, ?, ?, ?, ?)";
   const values = [
+    req.body.date, // Pobierz datę z żądania
     req.body.calories,
     req.body.proteins,
     req.body.carbohydrates,

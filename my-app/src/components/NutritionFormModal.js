@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "../Form.css";
 import axios from 'axios'; // Import Axios
-import { Link, useNavigate } from 'react-router-dom';
+// import { Link, useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const NutritionFormModal = ({ onClose }) => {
 
@@ -26,8 +28,16 @@ const NutritionFormModal = ({ onClose }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    axios.post('http://localhost:3001/api/nutrition_data', formData) // Wywołanie Axios
+  
+    const formDataToSend = {
+      calories: formData.calories,
+      proteins: formData.proteins,
+      carbohydrates: formData.carbohydrates,
+      fat: formData.fat,
+      date: selectedDate.toISOString().slice(0, 10), // Format daty YYYY-MM-DD
+    };
+  
+    axios.post('http://localhost:3001/api/nutrition_data', formDataToSend)
       .then((response) => {
         console.log(response.data);
         // Dodaj kod do obsługi sukcesu, np. przekierowanie użytkownika
@@ -37,12 +47,18 @@ const NutritionFormModal = ({ onClose }) => {
         console.error(error);
         // Dodaj kod do obsługi błędów
       });
+
+      handleClose();
   };
 
-  
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
 
-  return (
+ return (
 
 
 <div className="modal-overlay">
@@ -60,6 +76,17 @@ const NutritionFormModal = ({ onClose }) => {
           <input type='number' placeholder='Enter carbohydrates' className='rounded p-1' name='carbohydrates' onChange={handleInput} />
           <label>Tłuszcze:</label>
           <input type='number' placeholder='Enter fat' className='rounded p-1' name='fat' onChange={handleInput} />
+
+
+          
+          <h1>Wybierz datę:</h1>
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleDateChange}
+        
+        dateFormat="dd/MM/yyyy"
+      />
+    
           
 
 

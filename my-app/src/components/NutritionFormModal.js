@@ -61,7 +61,7 @@ const NutritionFormModal = ({ onClose }) => {
  return (
 
 
-<div className="modal-overlay">
+<div className="modal-overlay" >
   <div className='modal'>
       <div className="modal-content">
       {/* <span className="close" onClick={() => setIsModalOpen(false)}>X</span> */}

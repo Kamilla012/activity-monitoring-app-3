@@ -64,7 +64,8 @@ const WaterFormModal = ({ onClose }) => {
 
         <form onSubmit={handleSubmit}>
           <label>Water:</label>
-          <input type='number' placeholder='Enter Water' className='rounded p-1' name='Water' onChange={handleInput} />
+          <input type='number' placeholder='Enter Water' className='rounded p-1' name='water' onChange={handleInput} />
+
 
           
           <h1>Select date:</h1>

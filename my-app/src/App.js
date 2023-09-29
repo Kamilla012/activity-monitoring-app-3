@@ -17,8 +17,9 @@ import Signup from './components/Signup.js'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './components/Home'
-import NutritionFormModal from './components/NutritionFormModal'
-import VerticalLineWater from './components/VerlicalLineWater'
+import VerticalLineWater from './components/VerticalLineWater'
+import Raport from './components/raport'
+
 
 
 function App () {
@@ -91,13 +92,15 @@ return(
       <Opinions />
       <DoughnutChartSteps />
       
-
+        {/* <Calories /> */}
   
         <VerticalLineCalories />
-        {/* <VerticalLineWater /> */}
+        <VerticalLineWater />
+
+    
         
         <BarChart /> 
-        
+        <Raport />
       <BrowserRouter>
   <Routes>
     <Route path='/' element={<Home />} />

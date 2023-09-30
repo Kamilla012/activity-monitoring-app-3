@@ -1,40 +1,26 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
-function App() {
-  const [nutritionData, setNutritionData] = useState([]);
+// const Raport = () => {
+//   const [raportData, setRaportData] = useState({});
 
-  useEffect(() => {
-    // Wysłanie żądania GET do endpointu na serwerze
-    fetch('/api/nutrition_data')
-      .then((response) => response.json())
-      .then((data) => {
-        setNutritionData(data);
-      });
-  }, []);
+//   useEffect(() => {
+//     // Wyślij zapytanie do API na serwerze
+//     fetch('/api/raport')
+//       .then((response) => response.json())
+//       .then((data) => setRaportData(data))
+//       .catch((error) => console.error('Błąd pobierania danych:', error));
+//   }, []);
 
-  return (
-    <div>
-      <h1>Tabela Nutrition Data</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Nazwa</th>
-            <th>Kalorie</th>
-            {/* Dodaj inne kolumny, jeśli są dostępne */}
-          </tr>
-        </thead>
-        <tbody>
-          {nutritionData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.nazwa}</td>
-              <td>{item.kalorie}</td>
-              {/* Dodaj inne kolumny, jeśli są dostępne */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h1>Dzienny Raport</h1>
+//       {/* {/* <p>Kalorie: {raportData.total_calories}</p> */}
+//       <p>Białko: {raportData.total_proteins} g</p>
+//       <p>Węglowodany: {raportData.total_carbohydrates} g</p>
+//       <p>Tłuszcze: {raportData.total_fat} g</p>
+//       <p>Woda: {raportData.total_water} ml</p> */}
+//     </div>
+//   );
+// };
 
-export default App;
+// export default Raport;

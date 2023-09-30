@@ -26,8 +26,8 @@ const WaterFormModal = ({ onClose }) => {
     e.preventDefault();
   
     const formDataToSend = {
-      water: formData.water,
-      date: selectedDate.toISOString().slice(0, 10), // Format daty YYYY-MM-DD
+      water_amount: formData.water,
+      consumption_date: selectedDate.toISOString().slice(0, 10), // Format daty YYYY-MM-DD
     };
   
     axios.post('http://localhost:3001/api/water_data', formDataToSend)

@@ -18,7 +18,8 @@ import Signup from './components/Signup.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './components/Home'
 import VerticalLineWater from './components/VerticalLineWater'
-import Raport from './components/raport'
+import DailyReportComponent from './components/DailyReportComponent'
+
 
 
 
@@ -96,11 +97,11 @@ return(
   
         <VerticalLineCalories />
         <VerticalLineWater />
-
-    
-        
+     <DailyReportComponent />
+      
+        {/* <Raport /> */}
         <BarChart /> 
-        <Raport />
+        {/* <Raport /> */}
       <BrowserRouter>
   <Routes>
     <Route path='/' element={<Home />} />

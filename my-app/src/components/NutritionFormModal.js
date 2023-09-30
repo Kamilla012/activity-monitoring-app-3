@@ -5,6 +5,7 @@ import axios from 'axios'; // Import Axios
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+
 const NutritionFormModal = ({ onClose }) => {
 
 
@@ -29,14 +30,14 @@ const NutritionFormModal = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   
+
     const formDataToSend = {
       calories: formData.calories,
       proteins: formData.proteins,
       carbohydrates: formData.carbohydrates,
       fat: formData.fat,
-      date: selectedDate.toISOString().slice(0, 10), // Format daty YYYY-MM-DD
+      consumption_date: selectedDate ? selectedDate.toISOString().slice(0, 10) : null, // Sprawdź, czy data jest dostępna
     };
-  
     axios.post('http://localhost:3001/api/nutrition_data', formDataToSend)
       .then((response) => {
         console.log(response.data);

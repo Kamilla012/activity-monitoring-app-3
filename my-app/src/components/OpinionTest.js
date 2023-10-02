@@ -47,8 +47,8 @@ function OpinionForm() {
   }, [newData]);
 
   return (
-    <div className="flex flex-row">
-      <div className="max-w-md mx-auto mt-4 p-4 bg-gray-100 rounded">
+    <div className="flex flex-wrap">
+      <div className="w-[500px] mt-4 p-4 bg-gray-100 rounded">
         <h2 className="text-xl font-semibold mb-4">Write Your Opinion</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -94,11 +94,15 @@ function OpinionForm() {
           </button>
         </form>
       </div>
-      <div className="ml-10">
+      
+
+
+
+      <div className="ml-10 flex flex-wrap">
         {opinions.map((opinion) => (
           <div
             key={opinion.id}
-            className="bg-white p-4 rounded-lg shadow-md mb-4"
+            className="bg-white p-4 rounded-lg shadow-md my-5 mx-10"
           >
             <div className="font-semibold text-blue-600">
               {opinion.name} -{" "}
@@ -108,7 +112,12 @@ function OpinionForm() {
           </div>
         ))}
       </div>
+
+
+
     </div>
+
+    
   );
 }
 

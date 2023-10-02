@@ -26,7 +26,7 @@ export default function LoginTest() {
   };
 
   return (
-    <div className="flex justify-around items-center h-screen bg-black flex-col mr-10">
+    <div className="flex justify-around items-center bg-black flex-col mr-10">
       <div className="w-64 h-64 bg-white rounded-lg p-4">
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <div className="mb-4">

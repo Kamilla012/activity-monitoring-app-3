@@ -102,9 +102,9 @@ function App() {
           {/* <Raport /> */}
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+              {/* <Route path="/" element={<Home />} /> */}
+              {/* <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} /> */}
               <Route path="/test" element={<Test />} />
               <Route path="/signup-test" element={<SignupTest />} />
               <Route path="/login-test" element={<LoginTest />} />

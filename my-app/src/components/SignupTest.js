@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import supabase from "../supabaseClient";
+import styles from "../style";
 
 export default function SignupTest() {
   const [email, setEmail] = useState("");
@@ -40,7 +41,7 @@ export default function SignupTest() {
     }
   };
   return (
-    <div className="flex justify-around items-center h-screen bg-black">
+    <div className={`${styles.sectionXY} flex justify-around items-center bg-black`}>
       <div className="w-64 h-100 bg-white rounded-lg p-4">
         <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
         <div className="mb-4">

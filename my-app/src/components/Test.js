@@ -4,6 +4,8 @@ import DoughnutChartCals from "./DoughnutChartCals";
 import BarChart from "./BarChartCals";
 import DatePicker from "react-datepicker";
 import { Bar } from "react-chartjs-2";
+import TodoList from "./TodoList";
+import OpinionForm from "./OpinionTest";
 
 export default function Test() {
   const [email, setUsername] = useState("");
@@ -377,12 +379,12 @@ export default function Test() {
           dateFormat="dd/MM/yyyy"
         />
       </div>
-      <DoughnutChartCals props={[totalCaloriesConsumed, calorie_range]} />
-      {dateForSelStart && dateForSelEnd ? (
-        <BarChart props={[groupedBar]} />
-      ) : (
-        <div></div>
-      )}
+      <div className="h-full">
+        <TodoList props={idUser} />
+      </div>
+      <div>
+        <OpinionForm />
+      </div>
     </div>
   );
 }

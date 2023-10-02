@@ -16,6 +16,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup.js";
 import SignupTest from "./components/SignupTest";
 import LoginTest from "./components/LoginTest";
+import OpinionForm from "./components/OpinionTest";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
@@ -107,6 +108,7 @@ function App() {
               <Route path="/test" element={<Test />} />
               <Route path="/signup-test" element={<SignupTest />} />
               <Route path="/login-test" element={<LoginTest />} />
+              <Route path="/opinion" element={<OpinionForm />} />
             </Routes>
           </BrowserRouter>
         </div>

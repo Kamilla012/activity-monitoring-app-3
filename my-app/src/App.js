@@ -88,16 +88,16 @@ function App() {
           <Switches />
 
           <Opinions />
-          <DoughnutChartSteps />
+          {/* <DoughnutChartSteps /> */}
 
           {/* <Calories /> */}
 
-          <VerticalLineCalories />
-          <VerticalLineWater />
-          <DailyReportComponent />
+          {/* <VerticalLineCalories />
+          <VerticalLineWater /> */}
+         
 
           {/* <Raport /> */}
-          <BarChart />
+          {/* <BarChart /> */}
           {/* <Raport /> */}
           <BrowserRouter>
             <Routes>

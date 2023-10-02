@@ -80,24 +80,7 @@ const BarChart = (props) => {
           <Bar data={chartData} options={options} />
         </div>
 
-        <div>
-          {isPopupOpen ? (
-            <div>
-              <button onClick={closeModal} className="text-[30px] white">
-                Zamknij Popup
-              </button>
-              <WaterFormModal onClose={closeModal} />{" "}
-              {/* Przekazujemy funkcję onClose */}
-            </div>
-          ) : (
-            <button
-              onClick={openModal}
-              className="text-[30px] text-white absolute bottom-60 right-2 border border-white border-3 rounded-full px-3 text-center align-middle bg-[rgba(99,32,80,255)]"
-            >
-              +
-            </button>
-          )}
-        </div>
+    
       </div>
     </div>
   );

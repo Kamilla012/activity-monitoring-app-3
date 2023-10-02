@@ -4,6 +4,7 @@ import DoughnutChartCals from "./DoughnutChartCals";
 import BarChart from "./BarChartCals";
 import DatePicker from "react-datepicker";
 import { Bar } from "react-chartjs-2";
+import styles from "../style";
 
 export default function Test() {
   const [email, setUsername] = useState("");
@@ -277,9 +278,9 @@ export default function Test() {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-wrap">
       {!login && (
-        <div className="flex justify-around items-center h-screen bg-black flex-col mr-10">
+        <div className="flex justify-around items-center bg- flex-col mr-10">
           <div className="w-64 h-64 bg-white rounded-lg p-4">
             <h2 className="text-2xl font-semibold mb-4">Login</h2>
             <div className="mb-4">
@@ -301,7 +302,7 @@ export default function Test() {
               />
             </div>
             <button
-              className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700"
+              className="w-full bg-purple-500  text-white py-2 rounded-md hover:bg-pink-700 "
               onClick={handleLogin}
             >
               Login
@@ -310,8 +311,8 @@ export default function Test() {
         </div>
       )}
 
-      <div className="bg-red-500 mr-10">
-        <h1>Calorie Tracker</h1>
+      <div className={`w-[300px] bg-purple-300 ${styles.sectionXY} rounded-lg p-6 mr-10`}>
+        <h1 className="text-white text-center font-bold text-[30px] mb-5">Calorie Tracker</h1>
         <form>
           <div>
             <label>Select Food:</label>
@@ -333,22 +334,22 @@ export default function Test() {
             />
           </div>
           {gramsConsumed && selectedFood && (
-            <div>
-              <p>Calories Consumed: {caloriesConsumed} calories</p>
-              <p>Protein Consumed: {proteinConsumed} grams</p>
-              <p>Carbs Consumed: {carbsConsumed} grams</p>
+            <div className="mt-6">
+              <p><span className="font-bold">Calories Consumed:</span> {caloriesConsumed} calories</p>
+              <p><span className="font-bold">Protein Consumed:</span> {proteinConsumed} grams</p>
+              <p><span className="font-bold">Carbs Consumed:</span> {carbsConsumed} grams</p>
             </div>
           )}
-          <button type="button" onClick={submitConsumedFood}>
-            Submit Consumed Food
+          <button type="button" onClick={submitConsumedFood} className="w-full bg-purple-500  text-white py-2 rounded-md hover:bg-pink-700 mt-10">
+            Submit 
           </button>
         </form>
       </div>
       {login && foodConsumed !== null && (
-        <div className="bg-red-500 w-50 w-full">
+        <div className={` bg-purple-300 ${styles.sectionXY} rounded-lg p-6 mr-10 w-[500px]`}>
           <div className="flex justify-evenly">
             {table.map((item) => (
-              <div>
+              <div className="ml-5 font-bold text-[22px] text-white">
                 <div key={item}>{item}</div>
               </div>
             ))}
@@ -364,25 +365,32 @@ export default function Test() {
           ))}
         </div>
       )}
+      <div className={`${styles.sectionXY}`}>
+        <h1 className="w-[300px] text-white text-[22px] font-bold mb-5">Enter the range between the dates from which you want to receive the chart</h1>
+        <h3 className="text-white text-[16px] mb-2">Starting date</h3>
       <div className="flex flex-col">
         <DatePicker
+        className="mb-10"
           selected={selectedStartDate}
           onChange={handleDateStartChange}
           dateFormat="dd/MM/yyyy"
         />
+
+        <h3 className="text-white text-[16px] mb-2">Starting date</h3>
         <DatePicker
-          className="mt-4"
+          // className="mt-4"
           selected={selectedEndDate}
           onChange={handleDateEndChange}
           dateFormat="dd/MM/yyyy"
         />
       </div>
+      </div>
       <DoughnutChartCals props={[totalCaloriesConsumed, calorie_range]} />
-      {dateForSelStart && dateForSelEnd ? (
-        <BarChart props={[groupedBar]} />
-      ) : (
+      
+    
         <div></div>
-      )}
+      
     </div>
+   
   );
 }

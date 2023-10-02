@@ -10,16 +10,21 @@ const DoughnutChartSteps = (props) => {
       {
         label: "Dataset 1",
         data: [props.props[0]],
-        backgroundColor: "rgb(226,135,67)",
+        backgroundColor: "#CC0066",
       },
     ],
   };
 
-  const options = {};
+  const options = {
+    
+      cutout: "70%",
+      
+    
+  };
 
   return (
     <div className={`${styles.sectionXY} flex`}>
-      <div className={`${styles.doughnutParent} mr-6`}>
+      <div className={`${styles.doughnutParent} `}>
         <div className={`${styles.doughnut}`}>
           <h4 className="text-[18px]">{props.props[0]}</h4>
           <p className="text-[10px]">

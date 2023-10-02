@@ -4,7 +4,7 @@ import styles from '../style';
 
 
 const Switches = () => (
-    <div className={`${styles.sectionXY} xl:block hidden`}>
+    <div className={`${styles.sectionXY}`}>
         <Switch />
         <Switch />
     </div>

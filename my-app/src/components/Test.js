@@ -3,7 +3,7 @@ import supabase from "../supabaseClient";
 import DoughnutChartCals from "./DoughnutChartCals";
 import BarChart from "./BarChartCals";
 import DatePicker from "react-datepicker";
-import { Bar } from "react-chartjs-2";
+
 import styles from "../style";
 import TodoList from "./TodoList";
 import OpinionForm from './OpinionTest'
